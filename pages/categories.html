@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FinTrack — manage income and expense categories." />
+  <title>FinTrack — Categories</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header role="banner">
+    <p class="tagline">FinTrack</p>
+    <h1>Categories</h1>
+    <p class="subtitle">Group your transactions. Stored locally.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="categories.html" aria-current="page">Categories</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr />
+
+  <main>
+    <article aria-labelledby="addCatTitle">
+      <h2 id="addCatTitle">Add category</h2>
+      <p>Use income categories for money in, expense categories for spending.</p>
+
+      <form id="categoryForm" action="#" method="post">
+        <fieldset>
+          <legend>Category</legend>
+
+          <p>
+            <label for="catName">Name</label><br />
+            <input id="catName" name="name" type="text" required placeholder="e.g. Groceries" />
+          </p>
+
+          <p>
+            <label for="catType">Type</label><br />
+            <select id="catType" name="type" required>
+              <option value="" selected disabled>Select</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </p>
+
+          <p>
+            <button type="submit">Save</button>
+          </p>
+        </fieldset>
+      </form>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="listCatTitle">
+      <h2 id="listCatTitle">Your categories</h2>
+      <table>
+        <caption>Saved categories</caption>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="categoriesTbody"></tbody>
+      </table>
+    </article>
+  </main>
+
+  <hr />
+
+  <footer role="contentinfo">
+    <p>© <time datetime="2026">2026</time> FinTrack — Categories</p>
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/categories.js"></script>
+</body>
+</html>

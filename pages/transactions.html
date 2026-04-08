@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FinTrack — add, edit, and filter transactions." />
+  <title>FinTrack — Transactions</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header role="banner">
+    <p class="tagline">FinTrack</p>
+    <h1>Transactions</h1>
+    <p class="subtitle">Record income and expenses. Data stays in your browser.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="transactions.html" aria-current="page">Transactions</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr />
+
+  <main>
+    <article aria-labelledby="newTxTitle">
+      <h2 id="newTxTitle">Add or edit transaction</h2>
+      <p id="formHint">Fill the form and save. Use categories from the Categories page or type a new name.</p>
+
+      <form id="txForm" action="#" method="post">
+        <input id="editTxId" type="hidden" value="" />
+        <fieldset>
+          <legend id="txLegend">New transaction</legend>
+
+          <p>
+            <label for="type">Type</label><br />
+            <select id="type" name="type" required>
+              <option value="" selected disabled>Select</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="date">Date</label><br />
+            <input id="date" name="date" type="date" required />
+          </p>
+
+          <p>
+            <label for="amount">Amount (₺)</label><br />
+            <input id="amount" name="amount" type="number" min="0" step="0.01" required />
+          </p>
+
+          <p>
+            <label for="category">Category</label><br />
+            <input id="category" name="category" list="categoryList" type="text" required />
+            <datalist id="categoryList"></datalist>
+          </p>
+
+          <p>
+            <label for="note">Note (optional)</label><br />
+            <textarea id="note" name="note" rows="3"></textarea>
+          </p>
+
+          <p class="form-actions">
+            <button type="submit" id="txSubmitBtn">Save</button>
+            <button type="button" class="btn-secondary" id="cancelEditBtn" hidden>Cancel edit</button>
+          </p>
+        </fieldset>
+      </form>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="filtersTitle">
+      <h2 id="filtersTitle">Filters</h2>
+      <form id="filtersForm" action="#" method="get">
+        <fieldset>
+          <legend>Filter list</legend>
+
+          <p>
+            <label for="fromDate">From</label><br />
+            <input id="fromDate" name="from" type="date" />
+          </p>
+
+          <p>
+            <label for="toDate">To</label><br />
+            <input id="toDate" name="to" type="date" />
+          </p>
+
+          <p>
+            <label for="filterType">Type</label><br />
+            <select id="filterType" name="t">
+              <option value="all" selected>All</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="filterCategory">Category contains</label><br />
+            <input id="filterCategory" name="c" type="text" placeholder="e.g. Rent" />
+          </p>
+
+          <p class="form-actions">
+            <button type="submit">Apply</button>
+            <button type="button" class="btn-secondary" id="resetFilters">Reset</button>
+          </p>
+        </fieldset>
+      </form>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="txListTitle">
+      <h2 id="txListTitle">All transactions</h2>
+      <table>
+        <caption>Saved entries</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">Category</th>
+            <th scope="col">Amount (₺)</th>
+            <th scope="col">Note</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="txTbody"></tbody>
+      </table>
+    </article>
+  </main>
+
+  <hr />
+
+  <footer role="contentinfo">
+    <p>© <time datetime="2026">2026</time> FinTrack — Transactions</p>
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/transactions.js"></script>
+</body>
+</html>

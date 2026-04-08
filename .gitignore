@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs / env (if you add tooling later)
+*.log
+.env
+.env.*
+
+# Optional: local scratch files
+*.local

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FinTrack — reports: category breakdown and income vs expense." />
+  <title>FinTrack — Reports</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header role="banner">
+    <p class="tagline">FinTrack</p>
+    <h1>Reports</h1>
+    <p class="subtitle">Category breakdown for any month.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="reports.html" aria-current="page">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr />
+
+  <main>
+    <article aria-labelledby="repPeriodTitle">
+      <h2 id="repPeriodTitle">Period</h2>
+      <p>
+        <label for="repMonth">Month</label><br />
+        <input id="repMonth" name="month" type="month" />
+      </p>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="repCompareTitle">
+      <h2 id="repCompareTitle">Income vs expense</h2>
+      <table>
+        <caption>Totals for selected month</caption>
+        <thead>
+          <tr>
+            <th scope="col">Metric</th>
+            <th scope="col">Amount (₺)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Income</td>
+            <td id="repIncome">—</td>
+          </tr>
+          <tr>
+            <td>Expense</td>
+            <td id="repExpense">—</td>
+          </tr>
+          <tr>
+            <td>Net</td>
+            <td id="repNet">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="repCatTitle">
+      <h2 id="repCatTitle">By category</h2>
+      <table>
+        <caption>Income and expense per category</caption>
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Income (₺)</th>
+            <th scope="col">Expense (₺)</th>
+            <th scope="col">Net (₺)</th>
+          </tr>
+        </thead>
+        <tbody id="repCatTbody"></tbody>
+      </table>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="repChartTitle">
+      <h2 id="repChartTitle">Expense chart</h2>
+      <figure class="chart-figure">
+        <svg id="repExpenseChart" xmlns="http://www.w3.org/2000/svg"></svg>
+        <figcaption>Expense distribution (same month).</figcaption>
+      </figure>
+    </article>
+  </main>
+
+  <hr />
+
+  <footer role="contentinfo">
+    <p>© <time datetime="2026">2026</time> FinTrack — Reports</p>
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/reports.js"></script>
+</body>
+</html>

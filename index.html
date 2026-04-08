@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FinTrack — personal finance dashboard: totals, charts, and backup." />
+  <title>FinTrack — Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header role="banner">
+    <p class="tagline">FinTrack</p>
+    <h1>Personal finance</h1>
+    <p class="subtitle">Income, expenses, categories — stored locally in your browser.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="pages/transactions.html">Transactions</a></li>
+        <li><a href="pages/categories.html">Categories</a></li>
+        <li><a href="pages/reports.html">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr />
+
+  <main>
+    <article aria-labelledby="periodTitle">
+      <h2 id="periodTitle">Period</h2>
+      <p>
+        <label for="dashMonth">Month</label><br />
+        <input id="dashMonth" name="month" type="month" />
+      </p>
+      <p id="emptySummary" class="empty-state" hidden>No transactions in this month. Add some on the Transactions page.</p>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="summaryTitle">
+      <h2 id="summaryTitle">Summary</h2>
+      <p>Totals for the selected month.</p>
+      <table>
+        <caption>Monthly totals</caption>
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Amount (₺)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Income</td>
+            <td id="totalIncome">—</td>
+          </tr>
+          <tr>
+            <td>Expense</td>
+            <td id="totalExpense">—</td>
+          </tr>
+          <tr>
+            <td>Net</td>
+            <td id="totalNet">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="chartTitle">
+      <h2 id="chartTitle">Expenses by category</h2>
+      <p>Top expense categories for the selected month (SVG).</p>
+      <figure class="chart-figure">
+        <svg id="expenseChart" xmlns="http://www.w3.org/2000/svg"></svg>
+        <figcaption>Horizontal bars show relative spending.</figcaption>
+      </figure>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="recentTitle">
+      <h2 id="recentTitle">Recent activity</h2>
+      <table>
+        <caption>Latest entries this month</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">Category</th>
+            <th scope="col">Amount (₺)</th>
+            <th scope="col">Note</th>
+          </tr>
+        </thead>
+        <tbody id="recentTbody"></tbody>
+      </table>
+    </article>
+
+    <hr />
+
+    <article aria-labelledby="backupTitle">
+      <h2 id="backupTitle">Backup &amp; restore</h2>
+      <p>Export all data as JSON or import a previously exported file.</p>
+      <p>
+        <button type="button" id="exportBtn">Export JSON</button>
+      </p>
+      <p>
+        <label for="importInput">Import JSON</label><br />
+        <input id="importInput" type="file" accept="application/json,.json" />
+      </p>
+    </article>
+  </main>
+
+  <hr />
+
+  <footer role="contentinfo">
+    <p>© <time datetime="2026">2026</time> FinTrack — local-first personal accounting</p>
+  </footer>
+
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
